@@ -72,7 +72,7 @@ function show(i){
 }
 function unlock(i){ok[i]=1;updateNextButton()}
 function filled(){return PHOTOS.filter(Boolean).length}
-function done(){return !gate[cur]||ok[cur]}
+function done(){if(cur===5)return filled()>=10;return !gate[cur]||ok[cur]}
 $('next').onclick=function(){if(!done()){toast('Pehle yeh task pura kar do 🙈');return}show(cur+1)};
 $('prev').onclick=function(){show(cur-1)};
 
